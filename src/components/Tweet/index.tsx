@@ -13,12 +13,34 @@ import {
   ImageContent,
   Icons,
   Status,
-  ComentIcon,
+  CommentIcon,
   RetweetIcon,
   LikeIcon,
 } from './styles';
 
-const Tweet: React.FC = () => {
+interface Props {
+  avatar: string;
+  name: string;
+  username: string;
+  time: string;
+  description: string;
+  imageContent?: string;
+  comment: string;
+  retweet: string;
+  like: string;
+}
+
+const Tweet: React.FC<Props> = ({
+  avatar,
+  name,
+  username,
+  time,
+  description,
+  imageContent,
+  comment,
+  retweet,
+  like,
+}) => {
   return (
     <Container>
       <Retweeted>
@@ -27,32 +49,31 @@ const Tweet: React.FC = () => {
       </Retweeted>
 
       <Body>
-        <Avatar />
+        <Avatar src={avatar} alt="Foto Perfil" />
         <Content>
           <Header>
-            <strong>Rocketseat</strong>
-            <span>@rocketseat</span>
+            <strong>{name}</strong>
+            <span>{username}</span>
             <Dot />
-            <time>02 de mar</time>
+            <time>{time}</time>
           </Header>
 
-          {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
-          <Description>Foguete não tem ré 🚀</Description>
+          <Description>{description}</Description>
 
-          <ImageContent />
+          {imageContent && <ImageContent src={imageContent} />}
 
           <Icons>
             <Status>
-              <ComentIcon />
-              36
+              <CommentIcon />
+              {comment}
             </Status>
             <Status>
               <RetweetIcon />
-              25
+              {retweet}
             </Status>
             <Status>
               <LikeIcon />
-              100
+              {like}
             </Status>
           </Icons>
         </Content>

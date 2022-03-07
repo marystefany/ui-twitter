@@ -17,7 +17,10 @@ const ProfilePage: React.FC = () => {
   return (
     <Container>
       <Banner>
-        <Avatar />
+        <Avatar
+          src="https://media-exp1.licdn.com/dms/image/C4E03AQH5jxyPM7mRHQ/profile-displayphoto-shrink_200_200/0/1645489589409?e=1652313600&v=beta&t=vwyM4jLfABDRGT-VMBgw4LS0gT6ASjzYes7HcGvD9Fs"
+          alt="Foto Perfil"
+        />
       </Banner>
 
       <ProfileData>
